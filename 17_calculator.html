@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="17_calculator.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <header>
+        <h1>Кредитен калкулатор</h1>
+    </header>
+    
+    <section>
+        <div class="calculator">
+            <h2>Кредитен калкулатор с намаляващи вноски</h2>
+            <label for="loanAmount">Сума на кредита (в лв.):</label>
+            <input type="text" id="loanAmount" placeholder="Въведи сума на кредита" required oninput="formatLoanAmount()">
+          
+            <label for="interestRate">Годишен лихвен процент (%):</label>
+            <input type="number" id="interestRate" name="interestRate" placeholder="Въведи лихвен процент" step="0.01" min="0" required>
+        
+            <label for="feeRate">Годишен процент на таксите:</label>
+            <input type="number" id="feeRate" placeholder="Въведи годишен процент на таксите" step="0.01" min="0" required>
+        
+            <label for="loanTerm">Период на кредита (в години):</label>
+            <input type="number" id="loanTerm" placeholder="Въведи период на кредита" step="0.01" min="0" required>
+
+            <label for="gracePeriod">Гратисен период по главницата (в месеци):</label>
+            <input type="number" id="gracePeriod" placeholder="Въведи гратисен период" step="1" min="0">
+        
+            <!-- Подравняваме чекбокса и текста до него -->
+            <div class="conversion-row">
+                <label for="convertToEuro">
+                    <input type="checkbox" id="convertToEuro"> Превалутиране в евро
+                </label>
+            </div>
+          
+            <button onclick="calculateInvestmentLoan()">Покажи погасителен план</button>
+        
+            <div id="loanResults"></div> <!-- Тук ще се визуализират резултатите -->
+        </div>   
+        
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h4>Contact Us</h4>
+                <p>📞 +359 888 399 621</p>
+                <p>📧 stefony@gmail.com</p>
+            </div>
+            <div class="footer-social-links">
+                 
+            </div>
+            
+            <div class="footer-quick-links">
+                <h4>Бързи връзки</h4>
+                <ul>
+                    <li><a href="06_Provided services.html">Видове услуги</a></li>
+                    <li><a href="07_estate.html">Обезпечение</a></li>
+                    <li><a href="08_insurance.html">Застраховки</a></li>
+                    <li><a href="09_business_plan.html">Бизнес план</a></li>
+                    <li><a href="10_Loan Restructuring.html">Преструктуриране на кредити</a></li>
+                    <li><a href="11_glossary.html">Речник</a></li>
+                    <li><a href="12_tax-resources.html">Данъци</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="header.js"></script>
+    <script>
+        
+      function formatLoanAmount() {
+          const loanAmountField = document.getElementById('loanAmount');
+          const value = loanAmountField.value.replace(/\s+/g, ''); // Премахваме интервалите
+          
+          if (!isNaN(value)) {
+              loanAmountField.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, " "); // Добавяне на интервал
+          }
+      }
+
+      function calculateInvestmentLoan() {
+    // Премахване на интервалите и извличане на числата правилно
+    const loanAmount = parseFloat(document.getElementById('loanAmount').value.replace(/\s+/g, ''));
+    const annualInterestRate = parseFloat(document.getElementById('interestRate').value.replace(/\s+/g, '')) / 100;
+    const annualFeeRate = parseFloat(document.getElementById('feeRate').value.replace(/\s+/g, '')) / 100;
+    const loanTerm = parseFloat(document.getElementById('loanTerm').value.replace(/\s+/g, '')) * 12;
+    let gracePeriod = parseFloat(document.getElementById('gracePeriod').value.replace(/\s+/g, ''));
+
+    // Ако гратисният период не е въведен, го задаваме на 0
+    if (isNaN(gracePeriod)) {
+        gracePeriod = 0;
+    }
+
+    const isConvertToEuro = document.getElementById('convertToEuro').checked;
+    const conversionRate = 1.95583; // Фиксиран курс за конвертиране в евро
+
+    // Проверка за валидни числа
+    if (isNaN(loanAmount) || isNaN(annualInterestRate) || isNaN(annualFeeRate) || isNaN(loanTerm)) {
+        alert("Моля, въведете валидни числа.");
+        return;
+    }
+
+    const monthlyPrincipal = loanAmount / (loanTerm - gracePeriod); // Променяме формулата за главницата, за да отрази гратисния период
+    let remainingPrincipal = loanAmount;
+    let totalInterest = 0;
+    let totalFees = 0;
+
+    let resultHTML = "<h3>Примерен погасителен план:</h3><table><tr><th>Месец</th><th>Лихва</th><th>Такса</th><th>Главница</th><th>Обща вноска</th><th>Оставаща главница</th></tr>";
+
+    for (let i = 1; i <= loanTerm; i++) {
+        let monthlyInterest = remainingPrincipal * (annualInterestRate / 12);
+        let monthlyFee = remainingPrincipal * (annualFeeRate / 12);
+        let totalPayment = 0;
+        let monthlyPrincipalDisplay = 0;
+
+        // Пропускаме плащания по главницата по време на гратисния период
+        if (i > gracePeriod) {
+            totalPayment = monthlyPrincipal + monthlyInterest + monthlyFee;
+            remainingPrincipal -= monthlyPrincipal;
+            monthlyPrincipalDisplay = monthlyPrincipal.toFixed(2);
+        } else {
+            totalPayment = monthlyInterest + monthlyFee; // Само лихва и такси по време на гратисния период
+        }
+
+        let remainingPrincipalDisplay = remainingPrincipal.toFixed(2);
+        let monthlyInterestDisplay = monthlyInterest.toFixed(2);
+        let monthlyFeeDisplay = monthlyFee.toFixed(2);
+        let totalPaymentDisplay = totalPayment.toFixed(2);
+
+        // Превалутиране в евро, ако опцията е избрана
+        if (isConvertToEuro) {
+            remainingPrincipalDisplay = (remainingPrincipal / conversionRate).toFixed(2);
+            monthlyInterestDisplay = (monthlyInterest / conversionRate).toFixed(2);
+            monthlyFeeDisplay = (monthlyFee / conversionRate).toFixed(2);
+            totalPaymentDisplay = (totalPayment / conversionRate).toFixed(2);
+            monthlyPrincipalDisplay = (monthlyPrincipal / conversionRate).toFixed(2);
+        }
+
+        resultHTML += `<tr>
+            <td>${i}</td>
+            <td>${monthlyInterestDisplay} ${isConvertToEuro ? '€' : 'лв.'}</td>
+            <td>${monthlyFeeDisplay} ${isConvertToEuro ? '€' : 'лв.'}</td>
+            <td>${i > gracePeriod ? monthlyPrincipalDisplay : '-'}</td> <!-- Не показваме главницата през гратисния период -->
+            <td>${totalPaymentDisplay} ${isConvertToEuro ? '€' : 'лв.'}</td>
+            <td>${remainingPrincipalDisplay} ${isConvertToEuro ? '€' : 'лв.'}</td>
+        </tr>`;
+
+        totalInterest += monthlyInterest;
+        totalFees += monthlyFee;
+    }
+
+    const totalInterestDisplay = isConvertToEuro ? (totalInterest / conversionRate).toFixed(2) : totalInterest.toFixed(2);
+    const totalFeesDisplay = isConvertToEuro ? (totalFees / conversionRate).toFixed(2) : totalFees.toFixed(2);
+
+    resultHTML += `</table><h3>Общо платена лихва: ${totalInterestDisplay} ${isConvertToEuro ? '€' : 'лв.'}</h3>
+                   <h3>Общо платени такси: ${totalFeesDisplay} ${isConvertToEuro ? '€' : 'лв.'}</h3>`;
+    document.getElementById('loanResults').innerHTML = resultHTML;
+}
+    </script>
+</body>
+</html>

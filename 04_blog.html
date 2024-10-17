@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Serve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="04_blog.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <header>
+        <h1>Блог публични компании</h1>
+    </header>
+    
+    <!-- Секция за показване на публикациите от блога -->
+    <section class="blog-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="blog-container">
+                    <?php include 'blog.php'; ?>
+                </div>
+            </div>
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+    
+        <div class="carousel-indicators">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h4>Contact Us</h4>
+                <p>📞 +359 888 399 621</p>
+                <p>📧 stefony@gmail.com</p>
+            </div>
+            <div class="footer-social-links">
+                <!-- Тук можеш да добавиш социални линкове -->
+            </div>
+            <div class="footer-quick-links">
+                <h4>Бързи връзки</h4>
+                <ul>
+                    <li><a href="06_Provided services.html">Видове услуги</a></li>
+                    <li><a href="07_estate.html">Обезпечение</a></li>
+                    <li><a href="08_insurance.html">Застраховки</a></li>
+                    <li><a href="09_business_plan.html">Бизнес план</a></li>
+                    <li><a href="10_Loan Restructuring.html">Преструктуриране на кредити</a></li>
+                    <li><a href="11_glossary.html">Речник</a></li>
+                    <li><a href="12_tax-resources.html">Данъци</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="header.js"></script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+            // Забавяне от 1 секунда, за да дадем време на PHP да зареди публикациите
+            setTimeout(() => {
+                const prevBtn = document.querySelector('.prev-btn');
+                const nextBtn = document.querySelector('.next-btn');
+                const carouselSlide = document.querySelector('.carousel-container');
+                const blogPosts = document.querySelectorAll('.blog-post');
+                const indicators = document.querySelectorAll('.carousel-indicators span');
+
+                console.log(blogPosts.length); // Отпечатва броя на постовете в конзолата
+
+                if (blogPosts.length > 0) {
+                    const size = blogPosts[0].clientWidth; // Проверка дали има постове
+                    let counter = 0;
+                    const intervalTime = 5000; // Време за автоматично завъртане (5 секунди)
+                    let autoSlide;
+
+                    // Функция за промяна на активния пост
+                    function updateCarousel() {
+                        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                        blogPosts.forEach((post, index) => {
+                            post.classList.toggle('active', index === counter);
+                        });
+                        indicators.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === counter);
+                        });
+                    }
+
+                    // Навигация с бутоните
+                    nextBtn.addEventListener('click', () => {
+                        if (counter >= blogPosts.length - 1) counter = -1;
+                        counter++;
+                        updateCarousel();
+                        resetAutoSlide();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        if (counter <= 0) counter = blogPosts.length;
+                        counter--;
+                        updateCarousel();
+                        resetAutoSlide();
+                    });
+
+                    // Автоматично завъртане
+                    function startAutoSlide() {
+                        autoSlide = setInterval(() => {
+                            nextBtn.click();
+                        }, intervalTime);
+                    }
+
+                    // Спиране на автоматичното завъртане при интеракция
+                    function resetAutoSlide() {
+                        clearInterval(autoSlide);
+                        startAutoSlide();
+                    }
+
+                    // Индикатори за постовете
+                    indicators.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            counter = index;
+                            updateCarousel();
+                            resetAutoSlide();
+                        });
+                    });
+
+                    // Стартиране на карусела и автоматичното завъртане
+                    updateCarousel();
+                    startAutoSlide();
+                } else {
+                    console.error('No blog posts found.');
+                }
+            }, 1000); // Забавяне от 1 секунда
+        });
+    </script>
+</body>
+</html>

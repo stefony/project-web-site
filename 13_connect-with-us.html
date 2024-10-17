@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="13_connect-with-us.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <header>
+        <h1>Свържете се с нас</h1>
+    </header>
+    <section>
+        <p>Можете да се свържете с нас, като попълните формуляра по-долу или чрез предоставените контакти.</p>
+        
+        <div class="contact-images">
+            <img src="https://media.istockphoto.com/id/1434114741/photo/black-man-typing-on-laptop-contact-us-online-and-computer-technology-for-ecommerce-website.webp?b=1&s=612x612&w=0&k=20&c=1KsjFda2iHp7tDVDh07x7g1J2PKd5gJRjpZOY2NWHkU=" alt="Contact Image 1" class="contact-image">
+            <img src="https://media.istockphoto.com/id/1690296729/photo/face-woman-and-call-center-headset-office-at-night-for-customer-service-crm-and-network.webp?b=1&s=612x612&w=0&k=20&c=DiPmgQQSdh7dxszbnhd_VJxtxYnWWv3wThpEzdfjdvU=" alt="Contact Image 2" class="contact-image">
+        </div>
+
+        <form action="send_mail.php" method="post">
+            <!-- CSRF защита -->
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            
+            <label for="name">Име:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Съобщение:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Изпрати</button>
+        </form>
+
+        <p>Телефон: +359 888 399 621</p>
+        <p>Имейл: stefony@gmail.com</p>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h4>Contact Us</h4>
+                <p>📞 +359 888 399 621</p>
+                <p>📧 stefony@gmail.com</p>
+            </div>
+            <div class="footer-social-links">
+                
+            </div>
+            
+            <div class="footer-quick-links">
+                <h4>Бързи връзки</h4>
+                <ul>
+                    <li><a href="06_Provided services.html">Видове услуги</a></li>
+                    <li><a href="07_estate.html">Обезпечение</a></li>
+                    <li><a href="08_insurance.html">Застраховки</a></li>
+                    <li><a href="09_business_plan.html">Бизнес план</a></li>
+                    <li><a href="10_Loan Restructuring.html">Преструктуриране на кредити</a></li>
+                    <li><a href="11_glossary.html">Речник</a></li>
+                    <li><a href="12_tax-resources.html">Данъци</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="header.js"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.contact-image');
+            
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        console.log(`Image ${index + 1} is intersecting`); 
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            console.log(`Animating image ${index + 1}`);
+                        }, (index + 1) * 500); 
+                    }
+                });
+            }, observerOptions);
+
+            images.forEach((image, index) => {
+                console.log(`Setting up image ${index + 1}`);
+                image.style.opacity = '0';
+                image.style.transform = 'translateY(30px)';
+                observer.observe(image);
+            });
+        });
+    </script>
+</body>
+</html>

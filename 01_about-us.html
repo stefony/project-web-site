@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="01_about-us.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <header>
+        <h1>За Нас</h1>
+    </header>
+    
+    <!-- Секция за въведението -->
+    <section class="intro-section">
+        <div class="container">
+            <p>Нашият екип от експерти е с дългогодишен опит в банковия сектор и се е специализирал в създаването на висококачествени бизнес модели, бизнес планове с прогнозни парични потоци, които помагат на нашите клиенти да получат необходимото финансиране от банкови институции. Всеки член на екипа ни притежава задълбочени познания в областта на финансите, което ни позволява да предоставяме персонализирани и ефективни решения за нашите клиенти.</p>
+        </div>
+    </section>
+<!-- Бутон за вход (скрит по подразбиране, ще се покаже, ако потребителят не е логнат) -->
+ <!-- <button id="client-login-btn" style="display: none;">Вход</button>-->
+
+     <!-- Форма за вход -->
+      <!--<div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'Login')">Вход</button>
+                <button class="tablinks" onclick="openTab(event, 'Register')">Регистрация</button>
+            </div>
+    
+            <div id="Login" class="tabcontent">
+                <h2>Вход</h2>
+                <form action="#">
+                    <label for="login-email">Потребителско име</label>
+                    <input type="text" id="login-email">
+                    
+                    <label for="login-password">Парола</label>
+                    <input type="password" id="login-password">
+                    
+                    <button type="submit">Вход</button>
+                </form>
+            </div>
+    
+            <div id="Register" class="tabcontent">
+                <h2>Регистрация</h2>
+                <form action="register.php" method="POST">
+                    <label for="reg-username">Потребителско име</label>
+                    <input type="text" id="reg-username" name="username" required>
+                    
+                    <label for="reg-email">Имейл</label>
+                    <input type="email" id="reg-email" name="email" required>
+                    
+                    <label for="reg-password">Парола</label>
+                    <input type="password" id="reg-password" name="password" required>
+                    
+                    Добавяне на CSRF токен 
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            
+                    <button type="submit">Регистрация</button>
+                </form>
+            </div>
+        </div>
+    </div>-->
+
+    <!-- Секция за ключови компетенции -->
+    <section class="competencies-section">
+        <div class="container">
+            <h2 class="section-title">Ключови компетенции на нашия екип:</h2>
+            <div class="timeline">
+                <article class="event">
+                    <section>
+                        <p>Изготвяне на финансови анализи и отчети: Нашият екип притежава богат опит в изготвянето на финансови анализи и отчети за собствениците на компании. Въз основа на детайлни финансови данни, ние разработваме подробни анализи, които дават яснота за текущото финансово състояние и потенциала на бизнеса.</p>
+                    </section>
+                </article>
+                <article class="event">
+                    <section>
+                        <p>Контрол и управление на финансови процеси: Управлението на финансовата и на счетоводната отчетност е ключова за нашия екип. Ние изготвяме прогнозни парични потоци на компанията, планираме и организираме финансови дейности, подпомагаме нашите клиенти, за да гарантираме стабилност и прозрачност в управлението на техните активите. Определяме бъдещи сценарии (stress scenarios) на развитие на компанията, базирани на адекватно предоставена от тях информация.</p>
+                    </section>
+                </article>
+                <article class="event">
+                    <section>
+                        <p>Комуникация и преговори с финансови и държавни институции: Нашите специалисти имат дългогодишен опит в комуникацията и преговорите с различни финансови и държавни институции, което ни позволява да постигаме най-добрите условия за нашите клиенти. По най-правилния начин адресираме изискванията на съответните институции и отговаряме на тях.</p>
+                    </section>
+                </article>
+                <article class="event">
+                    <section>
+                        <p>Видове кредитни сделки: Нашият екип участва активно в структурата на кредитни сделки за финансиране на различни проекти, включително и не само в областта на строителството и възобновяемите енергийни източници. Ние подготвяме необходимата информация, като същевременно следим и анализираме финансовото състояние на кредитополучателите.</p>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция за защо да изберете нас -->
+    <section class="why-us-section full-width-section">
+        <p>Нашият екип е не просто група от финансови професионалисти, а доверен партньор, който разбира нуждите на вашия бизнес. Ние предлагаме цялостни решения, които включват не само техническа експертиза, но и допълват стратегическата визия, която ви помагаме да реализирате вашите бизнес цели. С нашата подкрепа, ние ще помогнем да получите необходимото финансиране; да управлявате финансовите аспекти на вашия бизнес по най-ефективния начин.</p>
+    </section>
+
+    <!-- Секция с карти за подчертаване на предимствата -->
+    <section class="our-services-section">
+        <div class="service-card-wrapper">
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <i class="fa-solid fa-bullseye" style="font-size: 48px; color: #4A90E2;"></i>
+                </div>
+                <h3>Стратегия и Визия</h3>
+                <p>Ние предлагаме цялостни решения, които включват не само техническа експертиза, но и допълват стратегическата визия, която ви помагаме да реализирате вашите бизнес цели.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <i class="fa-solid fa-coins" style="font-size: 48px; color: #4A90E2;"></i>
+                </div>
+                <h3>Финансиране</h3>
+                <p>С нашата подкрепа, ние ще помогнем да получите необходимото финансиране и да управлявате финансовите аспекти на вашия бизнес по най-ефективния начин.</p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+       
+        // Функция за показване на съответния таб
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+        
+            // Скриване на всички табове
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+        
+            // Премахване на класа "active" от всички таб бутони
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+        
+            // Показване на текущия таб и добавяне на класа "active" към бутона
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Показване на модала при клик върху "Client Login"
+        document.getElementById('client-login-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-modal').style.display = 'flex';
+        });
+        
+        // Скриване на модала при клик върху бутона за затваряне или извън модала
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('login-modal').style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('login-modal')) {
+                document.getElementById('login-modal').style.display = 'none';
+            }
+        });
+        
+        // Показване на таба за вход по подразбиране
+        document.getElementById('Login').style.display = 'block';
+           
+            </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h4>Contact Us</h4>
+                <p>📞 +359 888 399 621</p>
+                <p>📧 stefony@gmail.com</p>
+            </div>
+            <div class="footer-social-links">
+        
+            </div>
+            
+            <div class="footer-quick-links">
+                <h4>Бързи връзки</h4>
+                <ul>
+                    <li><a href="06_Provided services.html">Видове услуги</a></li>
+                    <li><a href="07_estate.html">Обезпечение</a></li>
+                    <li><a href="08_insurance.html">Застраховки</a></li>
+                    <li><a href="09_business_plan.html">Бизнес план</a></li>
+                    <li><a href="10_Loan Restructuring.html">Преструктуриране на кредити</a></li>
+                    <li><a href="11_glossary.html">Речник</a></li>
+                    <li><a href="12_tax-resources.html">Данъци</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="header.js"></script>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const events = document.querySelectorAll('.event');
+    
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('appear');
+                }, index * 500); // Забавяне от 400ms за всяко следващо събитие
+            }
+        });
+    }, observerOptions);
+
+    events.forEach(event => {
+        observer.observe(event);
+    });
+});
+
+    </script>
+
+<script>
+    // Функция за показване на съответния таб
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+    
+        // Скриване на всички табове
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+    
+        // Премахване на класа "active" от всички таб бутони
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+    
+        // Показване на текущия таб и добавяне на класа "active" към бутона
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    
+    // Показване на модала при клик върху "Client Login"
+    document.getElementById('client-login-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('login-modal').style.display = 'flex';
+    });
+    
+    // Скриване на модала при клик върху бутона за затваряне или извън модала
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        document.getElementById('login-modal').style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(event) {
+        if (event.target == document.getElementById('login-modal')) {
+            document.getElementById('login-modal').style.display = 'none';
+        }
+    });
+    
+    // Показване на таба за вход по подразбиране
+    document.getElementById('Login').style.display = 'block';
+    </script>
+    
+</body>
+</html>

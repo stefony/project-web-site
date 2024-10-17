@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="02_make_an_appointment.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <header>
+        <h1>Запазете час за среща</h1>
+    </header>
+    <section>
+        <h2>Тук можете да си насрочите точна дата и час за среща с нас.</h2>
+        
+        <div class="meeting-scheduler">
+            <!-- Снимка отляво -->
+            <img src="https://media.istockphoto.com/id/1363104923/photo/diverse-modern-office-businessman-leads-business-meeting-with-managers-talks-uses.jpg?s=612x612&w=0&k=20&c=R6-SufHacJ6bCnviq37kik2Jl6RMdECybcUpEoRuMLs=" alt="Business Meeting Left" class="side-image left">
+    
+            <!-- Календар за избор на дата -->
+            <div class="date-time-picker">
+                <h2>Изберете дата за среща</h2>
+                <label for="appointment-date">Изберете дата:</label>
+                <input type="date" id="appointment-date">
+                
+                <div class="time-slots" id="time-slots">
+                    <!-- Available time slots will be dynamically generated here -->
+                </div>
+
+                <!-- Скрито поле за избрания час -->
+                <input type="hidden" id="selected-time" name="selected_time">
+
+                <button id="schedule-appointment-btn">Запазете среща</button>
+            </div>
+    
+            <!-- Снимка отдясно -->
+            <img src="https://media.istockphoto.com/id/1333390966/photo/diverse-employees-on-online-conference-video-call-on-tv-screen-in-meeting-room.jpg?s=612x612&w=0&k=20&c=YfmkHUXurRccwoNORCTi-6hfqvTmw3Zzkmkst4WylRE=" alt="Business Meeting Right" class="side-image right">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h4>Contact Us</h4>
+                <p>📞 +359 888 399 621</p>
+                <p>📧 stefony@gmail.com</p>
+            </div>
+            <div class="footer-social-links">
+               
+            </div>
+            
+            <div class="footer-quick-links">
+                <h4>Бързи връзки</h4>
+                <ul>
+                    <li><a href="06_Provided services.html">Видове услуги</a></li>
+                    <li><a href="07_estate.html">Обезпечение</a></li>
+                    <li><a href="08_insurance.html">Застраховки</a></li>
+                    <li><a href="09_business_plan.html">Бизнес план</a></li>
+                    <li><a href="10_Loan Restructuring.html">Преструктуриране на кредити</a></li>
+                    <li><a href="11_glossary.html">Речник</a></li>
+                    <li><a href="12_tax-resources.html">Данъци</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script src="header.js"></script>
+
+    <script>
+       // Инициализиране на bookedAppointments с няколко примерни данни
+const bookedAppointments = {
+    '2024-09-03': ['09:00', '14:30'], // Пример заети часове за 3-ти септември 2024
+};
+
+const allTimeSlots = [
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+    '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+    '15:00', '15:30', '16:00', '16:30', '17:00', '17:30',
+    '18:00', '18:30'
+];
+
+let selectedTime = null;  // Тази променлива ще съхранява избрания час
+
+function renderTimeSlots(date) {
+    const timeSlotsContainer = document.getElementById('time-slots');
+    timeSlotsContainer.innerHTML = '';
+
+    allTimeSlots.forEach(time => {
+        const timeSlot = document.createElement('div');
+        timeSlot.classList.add('time-slot');
+        timeSlot.textContent = time;
+
+        if (bookedAppointments[date] && bookedAppointments[date].includes(time)) {
+            timeSlot.classList.add('booked');
+        } else {
+            timeSlot.addEventListener('click', function() {
+                document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+                timeSlot.classList.add('selected');
+                selectedTime = time;  // Съхраняване на избрания час в променливата
+                document.getElementById('selected-time').value = selectedTime;  // Задаване на избрания час в скритото поле
+            });
+        }
+
+        timeSlotsContainer.appendChild(timeSlot);
+    });
+}
+
+document.getElementById('appointment-date').addEventListener('change', function() {
+    const selectedDate = this.value;
+    renderTimeSlots(selectedDate);
+});
+
+document.getElementById('schedule-appointment-btn').addEventListener('click', function() {
+    const selectedDate = document.getElementById('appointment-date').value;
+
+    if (selectedDate && selectedTime) {
+        if (bookedAppointments[selectedDate] && bookedAppointments[selectedDate].includes(selectedTime)) {
+            alert(`Часът ${selectedTime} на ${selectedDate} вече е зает. Моля, изберете друг час.`);
+        } else {
+            alert(`Срещата е запазена за ${selectedDate} в ${selectedTime}.`);
+            
+            if (!bookedAppointments[selectedDate]) {
+                bookedAppointments[selectedDate] = [];
+            }
+            bookedAppointments[selectedDate].push(selectedTime);
+
+            renderTimeSlots(selectedDate);
+        }
+    } else {
+        alert('Моля, изберете дата и час за срещата.');
+    }
+});
+
+// Initial render for today or default date
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('appointment-date').value = today;
+renderTimeSlots(today);
+
+
+    </script>
+</body>
+</html>
