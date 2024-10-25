@@ -76,6 +76,38 @@ body {
     background-color: #f08953;
     color: white;
 }
+
+.dropdown {
+    position: relative; /* Задаване на относително позициониране на родителя */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #864192; /* Примерен фон */
+    min-width: 200px; /* Фиксирана ширина на подменюто */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: auto;
+}
+
+.dropdown-content a:hover {
+    background-color: #f08953;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Показване при hover */
+}
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
@@ -221,3 +253,160 @@ footer {
 .footer-quick-links ul li a:hover {
     color: #f08953;
 }
+/* За мобилни устройства до 400px */
+@media (max-width: 400px) {
+    .top-bar, .logo-section, nav ul, .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+}
+
+/* За устройства до 600px */
+@media (max-width: 600px) {
+    .logo {
+        width: 130px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-images {
+        flex-direction: column;
+    }
+
+    .contact-image {
+        width: 250px;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .footer-contact-info, .footer-social-links, .footer-quick-links {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* За устройства до 800px */
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .logo-section nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-images {
+        gap: 10px;
+    }
+
+    .footer-contact-info, .footer-social-links, .footer-quick-links {
+        min-width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo-section nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end; /* Подравняване на бутоните вдясно */
+        flex-wrap: nowrap;
+        gap: 15px; /* Разстояние между бутоните */
+    }
+
+    .logo-section nav a {
+        padding: 10px 15px; /* Намаляване на padding-а за бутоните */
+        width: auto; /* Премахване на фиксираната ширина */
+        display: block;
+        text-align: center;
+        background-color: #864192;
+        border-radius: 5px;
+    }
+
+    .logo-section nav a:hover {
+        background-color: #f08953;
+    }
+
+    .logo {
+        width: 150px; /* Пропорционално намаляване на логото */
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .dropdown-content {
+        min-width: 150px; /* Промяна на минималната ширина за dropdown съдържанието */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Промени за формата */
+    form {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Промени за footer-а */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-contact-info,
+    .footer-social-links,
+    .footer-quick-links {
+        width: 30%; /* Прави всеки контейнер да заема 30% от ширината */
+    }
+}
+
+

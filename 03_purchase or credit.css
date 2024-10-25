@@ -3,14 +3,15 @@
 body {
     font-family: 'Lato', sans-serif;
     color: #333;
-    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f9;
 }
 
+/* Top bar and logo section */
 .top-bar {
-    background-color:  #864192;
-    color: white;   
+    background-color: #864192;
+    color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -26,6 +27,7 @@ body {
     color: white;
     text-decoration: none;
 }
+
 .logo-section {
     background-image: url('https://images.unsplash.com/photo-1462206092226-f46025ffe607?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
@@ -56,6 +58,7 @@ body {
     color: white;
     font-weight: 700;
 }
+
 .logo-section nav ul {
     list-style: none;
     display: flex;
@@ -69,7 +72,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     padding: 10px 20px;
-    background-color:  #864192;
+    background-color: #864192;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     display: inline-block;
@@ -81,6 +84,7 @@ body {
     background-color: #f08953;
     color: white;
 }
+
 .dropdown {
     position: relative; /* Задаване на относително позициониране на родителя */
     display: inline-block;
@@ -112,64 +116,110 @@ body {
 .dropdown:hover .dropdown-content {
     display: block; /* Показване при hover */
 }
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: #2a6776;
-    text-align: center;
-    margin: 40px 0;
-}
 
-/* Стилове за речника */
-.glossary-section {
-    padding: 40px 20px;
-    background-color: #fff;
-}
-
-.glossary-container {
-    max-width: 1000px;
+/* Comparison table */
+.comparison-container {
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #f1f1f1;
-    padding: 30px;
-    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-dl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-    row-gap: 20px;
+h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #2e81ae;
+    font-size: 2.5rem;
+    margin: 30px 0;
 }
 
-dt {
+.comparison-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: #0077b6;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
-    color: #2a6776;
-    margin-bottom: 10px;
-    font-weight: 700;
-    transition: color 0.3s ease, background-color 0.3s ease; /* Добавяне на преходен ефект */
+    text-align: center;
 }
 
-dd {
+.comparison-table td {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
-    color: #555;
-    margin: 0 0 20px;
-    transition: color 0.3s ease; /* Преходен ефект */
+    background-color: #f9f9f9;
 }
 
-/* Добавяне на hover ефект */
-dt:hover {
-    color: #f08953; /* Промяна на цвета при минаване с курсора */
-    background-color: #f1f1f1; /* Лек фон при минаване с курсора */
-    padding: 5px; /* Малко разстояние около текста при hover */
+/* Стилове за аспектите */
+.aspect-heading {
+    background-color: #98b1b6;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
 }
 
-dd:hover {
-    color: #f08953; /* Промяна на цвета на описанието при минаване с курсора */
+/* Цветове за различните аспекти */
+.business-aspect td {
+    background-color: #00b4d8;
 }
 
+.accounting-aspect td {
+    background-color: #00b4d8;
+}
+
+.tax-aspect td {
+    background-color: #00b4d8;
+}
+
+.investment-aspect td {
+    background-color: #00b4d8;
+}
+
+.operational-aspect td {
+    background-color: #00b4d8;
+}
+
+.cashflow-aspect td {
+    background-color: #00b4d8;
+}
+
+.legal-aspect td {
+    background-color:#00b4d8;
+}
+
+/* Редове при hover */
+.comparison-table tr:hover td {
+    background-color: #a3c0c4;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+/* Footer styles */
 footer {
     background-color: #630074;
     color: white;
@@ -437,244 +487,3 @@ footer {
         width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
     }
 }
-/* За устройства до 400px */
-@media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .logo {
-        width: 120px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .glossary-container {
-        padding: 10px;
-        max-width: 100%; /* Максимална ширина за контейнера */
-        box-sizing: border-box; /* За да се избегнат проблеми с ширината */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Една колона за малки екрани */
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
-}
-
-/* За устройства до 600px */
-@media (max-width: 600px) {
-    .logo {
-        width: 130px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .glossary-container {
-        padding: 10px;
-        max-width: 100%; /* Уверете се, че контейнерът запълва ширината */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Една колона за текстовете в речника */
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .top-bar {
-        font-size: 0.9rem;
-    }
-}
-
-/* За устройства до 800px */
-@media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .glossary-container {
-        max-width: 95%; /* Намаляване на максималната ширина */
-        padding: 10px;
-        box-sizing: border-box; /* Уверете се, че контейнерът не излиза от екрана */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Промени на една колона за по-добро показване */
-    }
-
-    .meeting-scheduler {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
-}
-
-/* За устройства над 800px */
-@media (min-width: 801px) {
-    .logo-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    /* Разширяване на контейнерите за съдържание */
-    .meeting-scheduler {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .side-image {
-        width: 300px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        max-width: 350px;
-        padding: 20px;
-    }
-
-    #schedule-appointment-btn {
-        padding: 12px 30px;
-        font-size: 1.2rem;
-    }
-
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px 0;
-        margin: 5px 0;
-    }
-
-    footer .footer-contact-info h4,
-    footer .footer-quick-links h4 {
-        font-size: 1.1rem;
-    }
-
-    footer .footer-contact-info p {
-        font-size: 0.9rem;
-        padding: 5px 0;
-    }
-
-    footer .footer-quick-links ul {
-        padding: 0;
-    }
-
-    footer .footer-quick-links ul li {
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-    }
-
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
-    }
-}
-
-
-
-

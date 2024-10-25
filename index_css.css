@@ -104,10 +104,18 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    display: none; /* Подменюто е скрито по подразбиране */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 5px;
+}
+
+.dropdown-content.show {
+    display: block; /* Показване на подменюто при активиране на класа show */
+    opacity: 1;
 }
 
 .dropdown-content a {
@@ -134,16 +142,38 @@ body {
     color: white;
 }
 
-/* Location Info */
-.location-info {
-    text-align: center;
-    background-color: #e6e6fa; 
-    padding: 10px 0;
-    font-family: 'Lato', sans-serif;
-    color: black;
-    font-size: 1.0rem; /* Увеличаване на размера на шрифта */
-    font-weight: bold; /* Прави текста болднат */
-}
+@keyframes fadeInZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Location Info */
+  .location-info {
+      text-align: center;
+      background-color: #e6e6fa; 
+      padding: 10px 0;
+      font-family: 'Lato', sans-serif;
+      color: black;
+      font-size: 1.0rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      
+  }
+  
+  /* Текст с ефект на увеличаване и избледняване */
+  .location-info span {
+      display: inline-block;
+      animation: fadeInZoom 1.5s ease forwards; /* Плавно избледняване и увеличение */
+  }
+  
+
 
 /* Hero Section */
 .hero-section {
@@ -250,6 +280,7 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
+    word-wrap: break-word; /* Пренася текста на нов ред, ако е прекалено дълъг */
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -281,6 +312,7 @@ body {
     font-family: 'Lato', sans-serif;
     line-height: 1.4;
     color: white;
+    font-size: 1rem;
 }
 
 /* Modal */
@@ -852,7 +884,6 @@ header h1 {
 .credit-content li {
     margin-bottom: 10px;
 }
-
 /* Mobile phones (up to 400px) */
 @media (max-width: 400px) {
     .hero-section {
@@ -909,28 +940,38 @@ header h1 {
     }
 }
 
+.burger-menu {
+    display: none;
+}
+
+
 /* Small laptops (up to 800px) */
 @media (max-width: 800px) {
-    .hero-section {
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+        .service-button {
+            width: 100%; /* Задава на бутоните да заемат цялата ширина */
+            margin-bottom: 20px; /* Осигурява разстояние между бутоните */
+        }
+    }
+
+    nav ul {
+        display: none;
         flex-direction: column;
-        padding: 40px;
-    }
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-    }
-    .services-section {
-        flex-direction: column;
-        padding: 40px;
-    }
-    .service-button {
+        background-color: #864192;
         width: 100%;
-        margin-bottom: 20px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
     }
-    .logo-section nav ul {
-        gap: 20px;
+
+    nav ul.show {
+        display: flex; /* Когато класът show е добавен, менюто се показва */
     }
 }
+
 
 /* Desktops and larger (up to 1200px) */
 @media (max-width: 1200px) {

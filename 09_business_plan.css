@@ -76,6 +76,38 @@ body {
     background-color: #f08953;
     color: white;
 }
+
+.dropdown {
+    position: relative; /* Задаване на относително позициониране на родителя */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #864192; /* Примерен фон */
+    min-width: 200px; /* Фиксирана ширина на подменюто */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: auto;
+}
+
+.dropdown-content a:hover {
+    background-color: #f08953;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Показване при hover */
+}
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
@@ -210,3 +242,198 @@ footer {
 .footer-quick-links ul li a:hover {
     color: #f08953;
 }
+
+/* За устройства до 400px */
+@media (max-width: 400px) {
+    .card {
+        flex-direction: column; /* Превръща картите във вертикален изглед */
+        width: 100%; /* Картите заемат цялата ширина */
+    }
+
+    .card img {
+        width: 100%; /* Изображението ще заеме цялата ширина на картата */
+        height: auto; /* Поддържа правилното съотношение на изображението */
+        margin-bottom: 10px; /* Добавяне на разстояние под изображението */
+    }
+
+    .card-content {
+        max-width: 100%; /* Текстовият блок заема 100% от ширината под изображението */
+        padding: 15px;
+    }
+
+    .card-content h2 {
+        font-size: 1.2rem; /* Намалява размера на заглавието */
+    }
+
+    .card-content ul {
+        font-size: 0.9rem; /* Намалява размера на текста в списъка */
+    }
+
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%; /* Заема цялата ширина */
+        padding: 5px 0;
+    }
+
+    .logo {
+        width: 100px; /* Намалява логото */
+    }
+}
+
+
+/* За устройства до 600px */
+@media (max-width: 600px) {
+    .logo {
+        width: 130px;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .top-bar {
+        font-size: 0.9rem;
+    }
+}
+
+/* За устройства до 800px */
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .meeting-scheduler {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .date-time-picker {
+        width: 100%;
+    }
+
+    #schedule-appointment-btn {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+
+    /* Burger Menu */
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+
+    /* Разширяване на контейнерите за съдържание */
+    .meeting-scheduler {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .side-image {
+        width: 300px;
+        height: auto;
+    }
+
+    .date-time-picker {
+        max-width: 350px;
+        padding: 20px;
+    }
+
+    #schedule-appointment-btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        margin: 5px 0;
+    }
+
+    footer .footer-contact-info h4,
+    footer .footer-quick-links h4 {
+        font-size: 1.1rem;
+    }
+
+    footer .footer-contact-info p {
+        font-size: 0.9rem;
+        padding: 5px 0;
+    }
+
+    footer .footer-quick-links ul {
+        padding: 0;
+    }
+
+    footer .footer-quick-links ul li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
+    }
+}
+

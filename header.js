@@ -7,54 +7,68 @@ document.addEventListener("DOMContentLoaded", function() {
             <span>📧 stefony@gmail.com</span>
         </div>
         <div class="social-links">
-            <a href="first.html" id="home-btn">Начало</a>
-            <!-- Закоментиран е бутонът за вход, тъй като вече не се използва -->
-            <!-- <a href="#" id="client-login-btn">Вход</a> -->
+            <a href="index.html" id="home-btn">Начало</a>
         </div>
     </div>
+
     <div class="logo-section">
         <div class="logo-container">
-            <a href="first.html">
-                <img src="https://img.freepik.com/free-photo/man-suit-sits-desk-with-magazine-his-hand_1340-37815.jpg?t=st=1724714580~exp=1724718180~hmac=05220bf40bfca89bbf5dfcee00e01f4c0702fac946d638ede9a7793f9fff16e8&w=360" alt="Peltoma Capital Partners Logo" class="logo">
+            <a href="index.html">
+                <img src="https://img.freepik.com/free-photo/man-suit-sits-desk-with-magazine-his-hand_1340-37815.jpg" alt="Peltoma Capital Partners Logo" class="logo">
                 <span class="logo-text">Capital Partners</span>
             </a>
+        </div>
+
+        
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Относно</a>
+                    <div class="dropdown-content">
+                        <a href="01_about-us.html">За Нас</a>
+                        <a href="02_make_an_appointment.html">Запазете час за среща</a>
+                        <a href="03_purchase or credit.html">Покупка или кредит</a>
+                        <a href="04_blog.html">Блог Български публични компании</a>
+                        <a href="05_do_you_know_that.html">Знаете ли че..</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Предоставяне на Услуги</a>
+                    <div class="dropdown-content">
+                        <a href="06_Provided services.html">Видове услуги</a>
+                        <a href="07_estate.html">Обезпечение</a>
+                        <a href="08_insurance.html">Застраховки</a>
+                        <a href="09_business_plan.html">Бизнес план</a>
+                        <a href="10_Loan Restructuring.html">Преструктуриране на кредити</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Tools</a>
+                    <div class="dropdown-content">
+                        <a href="11_glossary.html">Речник</a>
+                        <a href="12_tax-resources.html">Данъци</a>
+                    </div>
+                </li>
+                <li><a href="13_connect-with-us.html">Свържете се с нас</a></li>
+            </ul>
+        </nav>
+
+        <!-- Добавяне на burger меню -->
+        <div class="burger-menu">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
         </div>
     </div>
     `;
 
-    // Вмъкване на хедъра в страницата
     document.getElementById('header-placeholder').innerHTML = headerHTML;
 
-    // Премахнати са всички функции, свързани с модала за вход и бутона за вход
-    /*
-    const loginBtn = document.getElementById('client-login-btn');
-    const loginModal = document.getElementById('login-modal');
-    const closeModalBtn = document.querySelector('.close-btn');
+    // Логика за burger менюто
+    const burgerMenu = document.querySelector('.burger-menu');
+    const menu = document.querySelector('nav ul');
 
-    if (loginBtn && loginModal && closeModalBtn) {
-        // Добавяне на функционалност за модалния прозорец "Вход"
-        loginBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Спиране на стандартното поведение на линка
-            loginModal.style.display = 'flex'; // Показване на модала
-        });
-
-        // Затваряне на модала при клик върху бутона за затваряне (X)
-        closeModalBtn.addEventListener('click', function() {
-            loginModal.style.display = 'none'; // Скриване на модала
-        });
-
-        // Затваряне на модала при клик извън него
-        window.addEventListener('click', function(event) {
-            if (event.target == loginModal) {
-                loginModal.style.display = 'none'; // Скриване на модала
-            }
-        });
-    }
-
-    // Показване на таба за вход по подразбиране, ако съществува елементът
-    const loginTab = document.getElementById('Login');
-    if (loginTab) {
-        loginTab.style.display = 'block';
-    }
-    */
+    burgerMenu.addEventListener('click', function() {
+        menu.classList.toggle('show');
+    });
 });

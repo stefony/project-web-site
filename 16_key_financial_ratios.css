@@ -76,6 +76,37 @@ body {
     background-color: #f08953;
     color: white;
 }
+.dropdown {
+    position: relative; /* Задаване на относително позициониране на родителя */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #864192; /* Примерен фон */
+    min-width: 200px; /* Фиксирана ширина на подменюто */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: auto;
+}
+
+.dropdown-content a:hover {
+    background-color: #f08953;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Показване при hover */
+}
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
@@ -183,3 +214,209 @@ footer {
 .footer-quick-links ul li a:hover {
     color: #f08953;
 }
+
+/* За мобилни устройства до 400px */
+@media (max-width: 400px) {
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .financial-ratios {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .financial-ratios table {
+        width: 100%;
+        display: block;
+    }
+
+    .financial-ratios th, .financial-ratios td {
+        font-size: 0.8rem;
+    }
+}
+
+/* За устройства до 600px */
+@media (max-width: 600px) {
+    .logo {
+        width: 130px;
+    }
+
+    .top-bar {
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .financial-ratios {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .financial-ratios table {
+        width: 100%;
+        display: block;
+    }
+
+    .financial-ratios th, .financial-ratios td {
+        font-size: 0.9rem;
+    }
+}
+
+/* За устройства до 800px */
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .logo-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .side-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .financial-ratios {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .financial-ratios table {
+        width: 100%;
+        display: block;
+    }
+
+    .financial-ratios th, .financial-ratios td {
+        font-size: 1rem;
+    }
+}
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        background-color: #864192;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    nav a:hover {
+        background-color: #f08953;
+    }
+
+    .financial-ratios {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .financial-ratios table {
+        width: 100%;
+    }
+
+    .financial-ratios th, .financial-ratios td {
+        font-size: 1.1rem;
+    }
+}
+
+
+

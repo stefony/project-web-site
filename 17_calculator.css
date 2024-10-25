@@ -81,6 +81,38 @@ body {
     color: white;
 }
 
+.dropdown {
+    position: relative; /* Задаване на относително позициониране на родителя */
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #864192; /* Примерен фон */
+    min-width: 200px; /* Фиксирана ширина на подменюто */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: auto;
+}
+
+.dropdown-content a:hover {
+    background-color: #f08953;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Показване при hover */
+}
+
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
@@ -256,3 +288,234 @@ footer {
 .footer-quick-links ul li a:hover {
     color: #f08953;
 }
+
+/* За мобилни устройства до 400px */
+@media (max-width: 400px) {
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .credit-section {
+        flex-direction: column;
+    }
+
+    .credit-type {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+/* За устройства до 600px */
+@media (max-width: 600px) {
+    .logo {
+        width: 130px;
+    }
+
+    .credit-section {
+        flex-direction: column;
+    }
+
+    .credit-type {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .top-bar {
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* За устройства до 800px */
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .logo-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .credit-section {
+        flex-wrap: wrap;
+    }
+
+    .credit-type {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+
+    .side-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px; /* Добавяме малко отстояние */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Центриране на бутоните */
+        gap: 10px; /* Разстояние между бутоните */
+        width: 100%;
+        flex-wrap: wrap; /* Позволяваме на бутоните да се пренареждат на нов ред, ако е необходимо */
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    nav a {
+        padding: 12px 20px; /* Увеличаваме вътрешните отстояния */
+        background-color: #864192;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-align: center;
+        min-width: 150px; /* Минимална ширина на бутоните */
+        flex-grow: 1; /* Позволяваме на бутоните да се разширяват равномерно */
+    }
+
+    nav a:hover {
+        background-color: #f08953;
+    }
+
+    /* Центриране на калкулатора и избягване на изрязване */
+    .calculator {
+        max-width: 750px; /* Максимална ширина на калкулатора */
+        margin: 20px auto; /* Центрираме калкулатора */
+        padding: 30px;
+        background-color: #f0f8ff;
+        border: 2px solid #2a6776;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .calculator input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1.1rem;
+    }
+
+    .calculator button {
+        width: 100%;
+        padding: 15px;
+        background-color: #2a6776;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+        transition: background-color 0.3s ease;
+    }
+
+    .calculator button:hover {
+        background-color: #f08953;
+    }
+
+    footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+

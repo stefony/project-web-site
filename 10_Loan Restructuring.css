@@ -142,7 +142,37 @@ ul li {
     background-color: #f08953;
     color: white;
 }
+.dropdown {
+    position: relative; /* Задаване на относително позициониране на родителя */
+    display: inline-block;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #864192; /* Примерен фон */
+    min-width: 200px; /* Фиксирана ширина на подменюто */
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: auto;
+}
+
+.dropdown-content a:hover {
+    background-color: #f08953;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Показване при hover */
+}
 /* Footer */
 footer {
     background-color: #630074;
@@ -211,22 +241,183 @@ footer {
     color: #f08953;
 }
 
-/* Допълнителен стил за мобилни устройства */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
+/* За мобилни устройства до 400px */
+@media (max-width: 400px) {
+    .top-bar, .logo-section, nav ul, .service-card-wrapper {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .part-one, .part-two {
+    .logo {
+        width: 120px;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #864192;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+/* За устройства до 600px */
+@media (max-width: 600px) {
+    .logo {
+        width: 130px;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    .top-bar {
+        font-size: 0.9rem;
+    }
+}
+
+/* За устройства до 800px */
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 1.8rem; /* Намаляване на размера на заглавието */
+        margin-top: 20px;  /* Добавяне на разстояние отгоре */
+        padding: 10px;
+    }
+
+    .logo-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        width: 120px; /* Намаляване на логото */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-bar {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .dropdown-content {
+        min-width: 150px; /* Намаляване на ширината на падащото меню */
+    }
+}
+
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+
+    /* Разширяване на контейнерите за съдържание */
+    .meeting-scheduler {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .side-image {
+        width: 300px;
+        height: auto;
+    }
+
+    .date-time-picker {
+        max-width: 350px;
         padding: 20px;
     }
 
-    ul {
-        padding-left: 20px;
+    #schedule-appointment-btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        margin: 5px 0;
     }
 
-    .logo-section nav a {
-        width: auto;
-        padding: 10px;
+    footer .footer-contact-info h4,
+    footer .footer-quick-links h4 {
+        font-size: 1.1rem;
+    }
+
+    footer .footer-contact-info p {
+        font-size: 0.9rem;
+        padding: 5px 0;
+    }
+
+    footer .footer-quick-links ul {
+        padding: 0;
+    }
+
+    footer .footer-quick-links ul li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    footer .footer-contact-info,
+    footer .footer-social-links,
+    footer .footer-quick-links {
+        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
     }
 }
+

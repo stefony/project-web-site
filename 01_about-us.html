@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="01_about-us.css">
 </head>
 <body>
+
+    
     <div id="header-placeholder"></div>
     <header>
         <h1>За Нас</h1>
@@ -20,51 +22,6 @@
             <p>Нашият екип от експерти е с дългогодишен опит в банковия сектор и се е специализирал в създаването на висококачествени бизнес модели, бизнес планове с прогнозни парични потоци, които помагат на нашите клиенти да получат необходимото финансиране от банкови институции. Всеки член на екипа ни притежава задълбочени познания в областта на финансите, което ни позволява да предоставяме персонализирани и ефективни решения за нашите клиенти.</p>
         </div>
     </section>
-<!-- Бутон за вход (скрит по подразбиране, ще се покаже, ако потребителят не е логнат) -->
- <!-- <button id="client-login-btn" style="display: none;">Вход</button>-->
-
-     <!-- Форма за вход -->
-      <!--<div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="tab">
-                <button class="tablinks active" onclick="openTab(event, 'Login')">Вход</button>
-                <button class="tablinks" onclick="openTab(event, 'Register')">Регистрация</button>
-            </div>
-    
-            <div id="Login" class="tabcontent">
-                <h2>Вход</h2>
-                <form action="#">
-                    <label for="login-email">Потребителско име</label>
-                    <input type="text" id="login-email">
-                    
-                    <label for="login-password">Парола</label>
-                    <input type="password" id="login-password">
-                    
-                    <button type="submit">Вход</button>
-                </form>
-            </div>
-    
-            <div id="Register" class="tabcontent">
-                <h2>Регистрация</h2>
-                <form action="register.php" method="POST">
-                    <label for="reg-username">Потребителско име</label>
-                    <input type="text" id="reg-username" name="username" required>
-                    
-                    <label for="reg-email">Имейл</label>
-                    <input type="email" id="reg-email" name="email" required>
-                    
-                    <label for="reg-password">Парола</label>
-                    <input type="password" id="reg-password" name="password" required>
-                    
-                    Добавяне на CSRF токен 
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-            
-                    <button type="submit">Регистрация</button>
-                </form>
-            </div>
-        </div>
-    </div>-->
 
     <!-- Секция за ключови компетенции -->
     <section class="competencies-section">
@@ -119,51 +76,10 @@
             </div>
         </div>
     </section>
+
+    <script src="header.js"></script>
     
-    <script>
-       
-        // Функция за показване на съответния таб
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-        
-            // Скриване на всички табове
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-        
-            // Премахване на класа "active" от всички таб бутони
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-        
-            // Показване на текущия таб и добавяне на класа "active" към бутона
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-        
-        // Показване на модала при клик върху "Client Login"
-        document.getElementById('client-login-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('login-modal').style.display = 'flex';
-        });
-        
-        // Скриване на модала при клик върху бутона за затваряне или извън модала
-        document.querySelector('.close-btn').addEventListener('click', function() {
-            document.getElementById('login-modal').style.display = 'none';
-        });
-        
-        window.addEventListener('click', function(event) {
-            if (event.target == document.getElementById('login-modal')) {
-                document.getElementById('login-modal').style.display = 'none';
-            }
-        });
-        
-        // Показване на таба за вход по подразбиране
-        document.getElementById('Login').style.display = 'block';
-           
-            </script>
+    
 
     <footer>
         <div class="footer-content">
@@ -192,7 +108,7 @@
     </footer>
     
 
-    <script src="header.js"></script>
+ 
 
     <script>
        document.addEventListener('DOMContentLoaded', function() {
@@ -219,48 +135,6 @@
 
     </script>
 
-<script>
-    // Функция за показване на съответния таб
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-    
-        // Скриване на всички табове
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-    
-        // Премахване на класа "active" от всички таб бутони
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-    
-        // Показване на текущия таб и добавяне на класа "active" към бутона
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-    
-    // Показване на модала при клик върху "Client Login"
-    document.getElementById('client-login-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('login-modal').style.display = 'flex';
-    });
-    
-    // Скриване на модала при клик върху бутона за затваряне или извън модала
-    document.querySelector('.close-btn').addEventListener('click', function() {
-        document.getElementById('login-modal').style.display = 'none';
-    });
-    
-    window.addEventListener('click', function(event) {
-        if (event.target == document.getElementById('login-modal')) {
-            document.getElementById('login-modal').style.display = 'none';
-        }
-    });
-    
-    // Показване на таба за вход по подразбиране
-    document.getElementById('Login').style.display = 'block';
-    </script>
-    
+   
 </body>
 </html>
