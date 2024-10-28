@@ -92,16 +92,17 @@ header h1 {
     background-color: #f08953;
     color: white;
 }
+
 .dropdown {
-    position: relative; /* Задаване на относително позициониране на родителя */
+    position: relative;
     display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #864192; /* Примерен фон */
-    min-width: 200px; /* Фиксирана ширина на подменюто */
+    background-color: #864192;
+    min-width: 200px;
     z-index: 1;
     border-radius: 5px;
 }
@@ -121,14 +122,7 @@ header h1 {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block; /* Показване при hover */
-}
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: #2a6776;
-    text-align: center;
-    margin-bottom: 30px;
+    display: block;
 }
 
 section p {
@@ -207,17 +201,6 @@ footer {
     margin-bottom: 10px;
 }
 
-.insurance-benefits ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.insurance-benefits ul li {
-    background: url('https://img.icons8.com/material-rounded/24/000000/checkmark.png') no-repeat left center;
-    padding-left: 30px;
-    margin-bottom: 10px;
-}
-
 .insurance-section h3 {
     font-size: 1.8rem;
     color: #2a6776;
@@ -250,21 +233,6 @@ footer {
     margin-bottom: 10px;
 }
 
-.insurance-section h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: #2a6776;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.insurance-section p {
-    font-size: 1.1rem;
-    color: #555;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
 /* Стилове за контейнера, който ще съдържа двете секции */
 .container {
     display: flex;
@@ -289,17 +257,17 @@ footer {
 
 .finance-section p,
 .finance-section ul li {
-    text-align: justify; /* Подравняване на текста за по-добър външен вид */
+    text-align: justify;
 }
 
 .lifeinsurance-section {
     background-color: white;
-    padding: 20px 40px; /* Още padding отляво и отдясно */
+    padding: 20px 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 90%; /* Стесняване на секцията */
-    margin: 0 auto; /* Центриране */
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .insurance-section h2, .finance-section h2, .lifeinsurance-section h2 {
@@ -349,11 +317,9 @@ footer {
     font-size: 1.5rem;
 }
 
-/* Добавяне на разстояние между секциите "Застраховане на вземания" и "Застраховки Гаранции" */
 .financeinsurance-type {
-    margin-bottom: 9rem; /* Разстояние между секциите */
+    margin-bottom: 9rem;
 }
-
 
 @media (max-width: 768px) {
     .upper-section {
@@ -365,14 +331,12 @@ footer {
     }
 }
 
-/* Стартова позиция за анимациите */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.8s ease-out, transform 1.8s ease-out;
 }
 
-/* Добавяне на различни закъснения за всяка секция */
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -390,8 +354,6 @@ footer {
     transition-delay: 1s;
 }
 
-
-  
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -452,123 +414,42 @@ footer {
     color: #f08953;
 }
 
-/* За мобилни устройства до 400px */
+/* За устройства до 400px */
 @media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
+    .logo-section, nav ul {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
-
     .logo {
         width: 120px;
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
     }
 }
 
 /* За устройства до 600px */
 @media (max-width: 600px) {
+    .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
     .logo {
         width: 130px;
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .top-bar {
-        font-size: 0.9rem;
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
+    .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
     header h1 {
         font-size: 2.2rem;
     }
-
-    .meeting-scheduler {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
 }
+
 
 /* За устройства над 800px */
 @media (min-width: 801px) {

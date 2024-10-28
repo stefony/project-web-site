@@ -53,7 +53,6 @@ section {
     text-align: justify; /* Подравняване на текста */
 }
 
-
 ul {
     list-style-type: disc;
     padding-left: 40px; /* Увеличено разстояние за списъка */
@@ -142,6 +141,7 @@ ul li {
     background-color: #f08953;
     color: white;
 }
+
 .dropdown {
     position: relative; /* Задаване на относително позициониране на родителя */
     display: inline-block;
@@ -173,6 +173,7 @@ ul li {
 .dropdown:hover .dropdown-content {
     display: block; /* Показване при hover */
 }
+
 /* Footer */
 footer {
     background-color: #630074;
@@ -243,8 +244,9 @@ footer {
 
 /* За мобилни устройства до 400px */
 @media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
+    .logo-section {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
@@ -252,40 +254,9 @@ footer {
         width: 120px;
     }
 
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
     nav ul {
-        display: none;
         flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+        gap: 10px;
     }
 }
 

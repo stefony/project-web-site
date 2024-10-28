@@ -289,7 +289,7 @@ footer {
     color: #f08953;
 }
 
-/* За мобилни устройства до 400px */
+/* За устройства до 400px */
 @media (max-width: 400px) {
     .top-bar, .logo-section, nav ul {
         flex-direction: column;
@@ -300,136 +300,73 @@ footer {
         width: 120px;
     }
 
-    .credit-section {
-        flex-direction: column;
-    }
-
-    .credit-type {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
-        background-color: #864192;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
     }
 
-    nav ul.show {
-        display: flex;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
     }
 
     .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+        display: none; /* Премахване на бургер менюто */
     }
 }
 
 /* За устройства до 600px */
 @media (max-width: 600px) {
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .logo {
         width: 130px;
     }
 
-    .credit-section {
-        flex-direction: column;
-    }
-
-    .credit-type {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .top-bar {
-        font-size: 0.9rem;
-    }
-
     nav ul {
-        display: none;
+        display: flex;
         flex-direction: column;
-        background-color: #864192;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
     }
 
-    nav ul.show {
-        display: flex;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
     }
 
     .burger-menu {
-        display: block;
-        cursor: pointer;
+        display: none; /* Премахване на бургер менюто */
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .logo-section {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .credit-section {
-        flex-wrap: wrap;
-    }
-
-    .credit-type {
-        width: 45%;
-        margin-bottom: 20px;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    .logo {
+        width: 140px;
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
+    }
+
+    .burger-menu {
+        display: none; /* Премахване на бургер менюто */
     }
 }
+
 
 /* За устройства над 800px */
 @media (min-width: 801px) {

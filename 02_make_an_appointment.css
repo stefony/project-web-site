@@ -321,163 +321,108 @@ footer {
     color: #f08953;
 }
 
-/* За устройства до 400px */
 @media (max-width: 400px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem; /* По-малък размер на текста за заглавието */
     }
 
-    .meeting-scheduler {
+    .logo-section {
         flex-direction: column;
         align-items: center;
     }
 
-    .side-image {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
     nav ul {
-        display: none;
         flex-direction: column;
-        background-color: #864192;
+        align-items: center;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
+        display: flex; /* Показва бутоните вертикално */
     }
 
-    nav ul.show {
-        display: flex;
+    nav ul li {
+        margin: 5px 0; /* Интервал между бутоните */
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    .burger-menu {
+        display: none; /* Скрива бургер менюто */
     }
 }
 
-/* За устройства до 600px */
 @media (max-width: 600px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Увеличава текста за малко по-големи екрани */
     }
 
-    .side-image {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.1rem;
-        padding: 12px 25px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
-}
-
-/* За устройства до 800px */
-@media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .meeting-scheduler {
+    .logo-section {
         flex-direction: column;
         align-items: center;
     }
 
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
     nav ul {
-        display: none;
         flex-direction: column;
-        background-color: #864192;
+        align-items: center;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .logo-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .meeting-scheduler {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Интервал между секциите */
+    }
+
+    .side-image, .date-time-picker {
+        width: 90%; /* Ограничаване на ширината, за да се побере по-добре */
+        margin: 0 auto;
+    }
+
+    .burger-menu {
+        display: none;
     }
 }
 

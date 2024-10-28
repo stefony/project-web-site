@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </a>
         </div>
 
-        
         <nav>
             <ul class="menu">
                 <li class="dropdown">
@@ -52,23 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="13_connect-with-us.html">Свържете се с нас</a></li>
             </ul>
         </nav>
-
-        <!-- Добавяне на burger меню -->
-        <div class="burger-menu">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </div>
     </div>
     `;
 
     document.getElementById('header-placeholder').innerHTML = headerHTML;
 
-    // Логика за burger менюто
-    const burgerMenu = document.querySelector('.burger-menu');
-    const menu = document.querySelector('nav ul');
-
-    burgerMenu.addEventListener('click', function() {
-        menu.classList.toggle('show');
-    });
+    // Логиката за burger менюто е премахната
 });

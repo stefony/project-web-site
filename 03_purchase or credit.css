@@ -215,10 +215,6 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-
-
-
-
 /* Footer styles */
 footer {
     background-color: #630074;
@@ -286,204 +282,247 @@ footer {
 .footer-quick-links ul li a:hover {
     color: #f08953;
 }
-
-/* За мобилни устройства до 400px */
+/* За устройства до 400px */
 @media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .logo {
-        width: 120px;
+        width: 100px;
     }
 
-    .service-card {
-        margin-bottom: 20px;
+    h1 {
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 10px;
     }
 
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .top-bar .contact-info span,
+    .top-bar .social-links a {
+        font-size: 0.8rem;
+        margin: 5px 0;
     }
 
     nav ul {
-        display: none;
         flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
+        align-items: center;
+        width: 100%; /* Заема цялата ширина */
     }
 
-    nav ul.show {
-        display: flex;
+    nav a {
+        font-size: 0.9rem;
+        width: 100%; /* Заема цялата ширина */
+        padding: 10px;
+        text-align: center;
+        display: block;
     }
 
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
+    .comparison-table th, .comparison-table td {
+        font-size: 0.8rem;
+        padding: 8px;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    .aspect-heading {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
+    .footer-contact-info p, 
+    .footer-quick-links ul li a {
+        font-size: 0.8rem;
     }
 }
 
 /* За устройства до 600px */
 @media (max-width: 600px) {
     .logo {
-        width: 130px;
+        width: 120px;
     }
 
-    .service-card {
-        margin-bottom: 20px;
+    h1 {
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 10px;
     }
 
     .top-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .top-bar .contact-info span,
+    .top-bar .social-links a {
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Заема цялата ширина */
+    }
+
+    nav a {
+        font-size: 1rem;
+        width: 100%; /* Заема цялата ширина */
+        padding: 12px;
+        text-align: center;
+        display: block;
+    }
+
+    .comparison-table th, .comparison-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .aspect-heading {
+        font-size: 1.1rem;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    .footer-contact-info p, 
+    .footer-quick-links ul li a {
         font-size: 0.9rem;
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
+    .logo {
+        width: 140px;
     }
 
-    .meeting-scheduler {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding: 10px;
     }
 
     nav ul {
-        display: none;
         flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
+        align-items: center;
+        width: 100%; /* Заема цялата ширина */
     }
 
-    nav ul.show {
-        display: flex;
+    nav a {
+        font-size: 1.1rem;
+        width: 100%; /* Заема цялата ширина */
+        padding: 15px;
+        text-align: center;
+        display: block;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    .comparison-table th, .comparison-table td {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .aspect-heading {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 35px 20px;
+    }
+
+    .footer-contact-info p, 
+    .footer-quick-links ul li a {
+        font-size: 1rem;
     }
 }
 
-/* За устройства над 800px */
-@media (min-width: 801px) {
-    .logo-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+/* За устройства между 801px и 1200px */
+@media (min-width: 801px) and (max-width: 1200px) {
+    .logo {
+        width: 150px;
     }
 
-    .logo {
-        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
+    h1 {
+        font-size: 2.2rem;
+        text-align: center;
+        padding: 10px;
     }
 
     nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
-        width: 100%;
+        flex-direction: column; /* Подрежда бутоните един под друг */
+        align-items: center;
+        width: 100%; /* Заема цялата ширина */
     }
 
-    nav ul li {
-        margin: 5px 0;
-    }
-    
-
-    /* Разширяване на контейнерите за съдържание */
-    .meeting-scheduler {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .side-image {
-        width: 300px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        max-width: 350px;
-        padding: 20px;
-    }
-
-    #schedule-appointment-btn {
-        padding: 12px 30px;
+    nav a {
         font-size: 1.2rem;
-    }
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        flex-direction: column;
+        width: 100%; /* Заема цялата ширина */
+        padding: 18px;
         text-align: center;
-        padding: 10px 0;
-        margin: 5px 0;
+        display: block;
     }
 
-    footer .footer-contact-info h4,
-    footer .footer-quick-links h4 {
+    .comparison-table th, .comparison-table td {
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+
+    .aspect-heading {
+        font-size: 1.3rem;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-contact-info p, 
+    .footer-quick-links ul li a {
         font-size: 1.1rem;
     }
+}
 
-    footer .footer-contact-info p {
-        font-size: 0.9rem;
-        padding: 5px 0;
+/* За устройства над 1200px */
+@media (min-width: 1201px) {
+    .logo {
+        width: 150px;
     }
 
-    footer .footer-quick-links ul {
-        padding: 0;
+    h1 {
+        font-size: 2.5rem;
     }
 
-    footer .footer-quick-links ul li {
-        margin-bottom: 8px;
-        font-size: 0.9rem;
+    nav ul {
+        flex-direction: row; /* Подрежда бутоните в редица */
+        gap: 20px;
     }
 
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
+    nav a {
+        font-size: 1.2rem;
+        width: auto; /* Автоматична ширина */
+        padding: 15px 20px;
+    }
+
+    .comparison-table th, .comparison-table td {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .aspect-heading {
+        font-size: 1.3rem;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-contact-info p, 
+    .footer-quick-links ul li a {
+        font-size: 1.1rem;
     }
 }
+

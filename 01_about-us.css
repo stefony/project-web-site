@@ -492,7 +492,7 @@ footer {
 
 /* За мобилни устройства до 400px */
 @media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
+    .top-bar, .logo-section, nav ul, .footer-content {
         flex-direction: column;
         text-align: center;
     }
@@ -501,40 +501,22 @@ footer {
         width: 120px;
     }
 
-    .service-card {
-        margin-bottom: 20px;
+    header h1 {
+        font-size: 1.8rem;
     }
 
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    form {
+        padding: 10px;
     }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+        font-size: 0.9rem;
     }
 
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    .footer-content {
+        text-align: center;
     }
 }
 
@@ -544,67 +526,69 @@ footer {
         width: 130px;
     }
 
-    .service-card {
-        margin-bottom: 20px;
+    header h1 {
+        font-size: 2rem;
     }
 
-    .top-bar {
-        font-size: 0.9rem;
+    .contact-images {
+        flex-direction: column;
+    }
+
+    .contact-image {
+        width: 250px;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .footer-contact-info, .footer-social-links, .footer-quick-links {
+        min-width: 100%;
+        margin-bottom: 20px;
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
-    .meeting-scheduler {
-        flex-direction: column;
+    .logo-section {
+        display: flex;
+        flex-direction: column; /* Подреждаме логото и бутоните един под друг */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo-section nav ul {
+        display: flex;
+        flex-direction: column; /* Вертикално подреждане на бутоните */
         align-items: center;
     }
 
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
+    .logo {
+        width: 150px; /* Намаляване на размера на логото за повече пространство */
     }
 
-    .date-time-picker {
-        width: 100%;
+    .logo-section nav a {
+        padding: 8px 12px; /* Намаляване на padding-а за бутоните */
     }
 
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
+    .contact-images {
         flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
+        gap: 10px;
     }
 
-    nav ul.show {
-        display: flex;
+    .footer-content {
+        text-align: center;
+        flex-direction: column;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    /* Променяме ширината на текста, за да се вижда правилно */
+    .text-content {
+        width: 90%;
+        margin: 0 auto;
     }
 }
 
@@ -615,78 +599,94 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 10px 20px;
     }
 
     .logo {
-        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
+        width: 180px; /* Малко по-голямо лого за по-големи екрани */
     }
 
-    nav ul {
+    .logo-section nav ul {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
-        width: 100%;
+        gap: 10px; /* Достатъчно разстояние между бутоните */
     }
 
-    nav ul li {
-        margin: 5px 0;
+    .text-content {
+        width: 100%; /* Пълна ширина за големи екрани */
     }
-    
+}
 
-    /* Разширяване на контейнерите за съдържание */
-    .meeting-scheduler {
+
+/* За устройства над 800px */
+@media (min-width: 801px) {
+    .logo-section {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+        padding: 10px 20px;
     }
 
-    .side-image {
-        width: 300px;
-        height: auto;
+    .logo-section nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end; /* Подравняване на бутоните вдясно */
+        flex-wrap: nowrap;
+        gap: 15px; /* Разстояние между бутоните */
     }
 
-    .date-time-picker {
-        max-width: 350px;
+    .logo-section nav a {
+        padding: 10px 15px; /* Намаляване на padding-а за бутоните */
+        width: auto; /* Премахване на фиксираната ширина */
+        display: block;
+        text-align: center;
+        background-color: #864192;
+        border-radius: 5px;
+    }
+
+    .logo-section nav a:hover {
+        background-color: #f08953;
+    }
+
+    .logo {
+        width: 150px; /* Пропорционално намаляване на логото */
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .dropdown-content {
+        min-width: 150px; /* Промяна на минималната ширина за dropdown съдържанието */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Промени за формата */
+    form {
+        max-width: 700px;
+        margin: 0 auto;
         padding: 20px;
     }
 
-    #schedule-appointment-btn {
-        padding: 12px 30px;
-        font-size: 1.2rem;
-    }
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px 0;
-        margin: 5px 0;
+    /* Промени за footer-а */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
     }
 
-    footer .footer-contact-info h4,
-    footer .footer-quick-links h4 {
-        font-size: 1.1rem;
-    }
-
-    footer .footer-contact-info p {
-        font-size: 0.9rem;
-        padding: 5px 0;
-    }
-
-    footer .footer-quick-links ul {
-        padding: 0;
-    }
-
-    footer .footer-quick-links ul li {
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-    }
-
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
+    .footer-contact-info,
+    .footer-social-links,
+    .footer-quick-links {
+        width: 30%; /* Прави всеки контейнер да заема 30% от ширината */
     }
 }

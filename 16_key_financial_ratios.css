@@ -215,7 +215,7 @@ footer {
     color: #f08953;
 }
 
-/* За мобилни устройства до 400px */
+/* За устройства до 400px */
 @media (max-width: 400px) {
     .top-bar, .logo-section, nav ul {
         flex-direction: column;
@@ -227,34 +227,19 @@ footer {
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0; /* Премахване на допълнителен padding */
     }
 
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
     }
 
     .financial-ratios {
         width: 100%;
+        padding: 0 15px; /* Добавяне на по-голям padding от двете страни */
         overflow-x: auto;
     }
 
@@ -265,41 +250,34 @@ footer {
 
     .financial-ratios th, .financial-ratios td {
         font-size: 0.8rem;
+        word-break: break-word; /* Прекъсва дългите думи */
     }
 }
 
 /* За устройства до 600px */
 @media (max-width: 600px) {
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .logo {
         width: 130px;
     }
 
-    .top-bar {
-        font-size: 0.9rem;
-    }
-
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
     }
 
     .financial-ratios {
         width: 100%;
+        padding: 0 15px; /* Добавяне на по-голям padding от двете страни */
         overflow-x: auto;
     }
 
@@ -310,55 +288,34 @@ footer {
 
     .financial-ratios th, .financial-ratios td {
         font-size: 0.9rem;
+        word-break: break-word;
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
+    .top-bar, .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .logo-section {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+    .logo {
+        width: 140px;
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    nav li {
+        margin-bottom: 10px; /* Разстояние между бутоните */
     }
 
     .financial-ratios {
         width: 100%;
+        padding: 0 20px; /* Добавяне на по-голям padding от двете страни */
         overflow-x: auto;
     }
 
@@ -369,6 +326,7 @@ footer {
 
     .financial-ratios th, .financial-ratios td {
         font-size: 1rem;
+        word-break: break-word;
     }
 }
 
@@ -393,20 +351,10 @@ footer {
         margin: 5px;
     }
 
-    nav a {
-        padding: 10px 15px;
-        background-color: #864192;
-        border-radius: 5px;
-        font-size: 1rem;
-    }
-
-    nav a:hover {
-        background-color: #f08953;
-    }
-
     .financial-ratios {
         width: 80%;
         margin: 0 auto;
+        padding: 0 30px; /* По-голям padding за по-широки екрани */
     }
 
     .financial-ratios table {
@@ -415,6 +363,7 @@ footer {
 
     .financial-ratios th, .financial-ratios td {
         font-size: 1.1rem;
+        word-break: break-word;
     }
 }
 

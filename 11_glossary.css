@@ -237,121 +237,57 @@ footer {
     color: #f08953;
 }
 
-/* За мобилни устройства до 400px */
+/* За устройства до 400px */
 @media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
+    .top-bar, .logo-section, nav ul {
         flex-direction: column;
         text-align: center;
     }
 
-    .logo {
-        width: 120px;
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+        display: none; /* Премахване на бургер менюто */
     }
 }
 
 /* За устройства до 600px */
 @media (max-width: 600px) {
-    .logo {
-        width: 130px;
+    .logo-section, nav ul {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .service-card {
-        margin-bottom: 20px;
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .top-bar {
-        font-size: 0.9rem;
+    .burger-menu {
+        display: none; /* Премахване на бургер менюто */
     }
 }
 
 /* За устройства до 800px */
 @media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .meeting-scheduler {
+    .logo-section, nav ul {
         flex-direction: column;
-        align-items: center;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
+        text-align: center;
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
+    .burger-menu {
+        display: none; /* Премахване на бургер менюто */
     }
 }
 
@@ -437,244 +373,5 @@ footer {
         width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
     }
 }
-/* За устройства до 400px */
-@media (max-width: 400px) {
-    .top-bar, .logo-section, nav ul, .service-card-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .logo {
-        width: 120px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .glossary-container {
-        padding: 10px;
-        max-width: 100%; /* Максимална ширина за контейнера */
-        box-sizing: border-box; /* За да се избегнат проблеми с ширината */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Една колона за малки екрани */
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
-}
-
-/* За устройства до 600px */
-@media (max-width: 600px) {
-    .logo {
-        width: 130px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .glossary-container {
-        padding: 10px;
-        max-width: 100%; /* Уверете се, че контейнерът запълва ширината */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Една колона за текстовете в речника */
-    }
-
-    .service-card {
-        margin-bottom: 20px;
-    }
-
-    .top-bar {
-        font-size: 0.9rem;
-    }
-}
-
-/* За устройства до 800px */
-@media (max-width: 800px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .glossary-container {
-        max-width: 95%; /* Намаляване на максималната ширина */
-        padding: 10px;
-        box-sizing: border-box; /* Уверете се, че контейнерът не излиза от екрана */
-    }
-
-    dl {
-        grid-template-columns: 1fr; /* Промени на една колона за по-добро показване */
-    }
-
-    .meeting-scheduler {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .side-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        width: 100%;
-    }
-
-    #schedule-appointment-btn {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    /* Burger Menu */
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #864192;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 10;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-    }
-}
-
-/* За устройства над 800px */
-@media (min-width: 801px) {
-    .logo-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        width: 180px; /* Достатъчно голямо лого за по-големи екрани */
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap; /* Позволява бутоните да се пренасят на нов ред, ако е необходимо */
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    /* Разширяване на контейнерите за съдържание */
-    .meeting-scheduler {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .side-image {
-        width: 300px;
-        height: auto;
-    }
-
-    .date-time-picker {
-        max-width: 350px;
-        padding: 20px;
-    }
-
-    #schedule-appointment-btn {
-        padding: 12px 30px;
-        font-size: 1.2rem;
-    }
-
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px 0;
-        margin: 5px 0;
-    }
-
-    footer .footer-contact-info h4,
-    footer .footer-quick-links h4 {
-        font-size: 1.1rem;
-    }
-
-    footer .footer-contact-info p {
-        font-size: 0.9rem;
-        padding: 5px 0;
-    }
-
-    footer .footer-quick-links ul {
-        padding: 0;
-    }
-
-    footer .footer-quick-links ul li {
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-    }
-
-    footer .footer-contact-info,
-    footer .footer-social-links,
-    footer .footer-quick-links {
-        width: 100%; /* Прави всяка секция да заема цялата ширина за по-добро подреждане */
-    }
-}
-
-
 
 
